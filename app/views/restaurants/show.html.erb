@@ -1,0 +1,22 @@
+<div class="container text-center">
+<img src="../app/assets/images/taco.svg" alt="">
+<h1><%= @restaurant.name %></h1>
+ <p>Address : <%= @restaurant.address %></p>
+ <p>Phone number : <%= @restaurant.phone_number %></p>
+ <p>Category : <%= @restaurant.category %></p>
+ <h3>Reviews :</h3>
+ <div>
+ <% @restaurant.reviews.each do |review| %>
+ <hr>
+ <p>Rating : <strong><%= review.rating %> / 5</strong></p>
+ <p><%= review.content %></p>
+ <% end %>
+ <hr>
+ </div>
+
+
+<%= link_to 'Back to home', restaurants_path, class: "btn btn-primary"  %>
+<%= link_to 'Give a review', new_restaurant_review_path(@restaurant), class: "btn btn-primary"  %>
+</div>
+
+
